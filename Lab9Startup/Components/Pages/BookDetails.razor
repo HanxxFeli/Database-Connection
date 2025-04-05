@@ -1,0 +1,11 @@
+﻿@page "/bookdetails/{BookId}"
+
+<h1>Book details</h1>
+<div>
+<h3>@book.Title</h3>
+    <p>@book.Author</p>
+    <p>@book.Category</p>
+    <p>@book.Description</p>
+    <button class="btn btn-primary" @onclick="() => EditBook(book)">Edit book</button>
+    <button class="btn btn-danger" @onclick="() => DeleteBook(book)">Delete book</button>
+</div>

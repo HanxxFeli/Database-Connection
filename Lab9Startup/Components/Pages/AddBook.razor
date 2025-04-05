@@ -1,0 +1,38 @@
+﻿@page "/addBook"
+
+<h1>Add new book</h1>
+
+
+<EditForm Model="@book">
+    <div class="form-group mb-3">
+        <label for="title">Title</label>
+        <InputText id="title" class="form-control" @bind-Value="@book.Title" />
+    </div>
+
+    <div class="form-group my-4">
+        <label for="author">Author</label>
+        <InputText id="author" class="form-control" @bind-Value="@book.Author" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="category">Category</label>
+        <InputText id="category" class="form-control" @bind-Value="@book.Category" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="description">Description</label>
+        <InputTextArea class="form-control" @bind-Value="@book.Description" />
+    </div>
+
+    <div class="text-center">
+        <button @onclick="SaveBook" class="btn btn-primary mb-3">Add new book</button>
+    </div>
+</EditForm>
+
+@if (isSaved)
+{
+    <div class="alert alert-info" role="alert">
+        Book @book.Title was added
+    </div>
+}
+

@@ -1,0 +1,38 @@
+﻿@page "/"
+
+
+<header class="d-flex justify-content-between my-4">
+        <h1>Welcome to the Book Store</h1>
+        <div class="m-x-0">
+            <NavLink class="btn btn-primary" href="addBook">Add new book</NavLink>
+        </div>
+</header>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in books)
+        {
+            <tr>
+                <td>@book.BookId</td>
+                <td>@book.Title</td>
+                <td>@book.Author</td>
+                <td>@book.Category</td>
+                <td class="text-center">
+                    <button class="btn btn-info" @onclick="() => ViewBookDetails(book)">View book</button>
+                    <button class="btn btn-warning" @onclick="() => EditBook(book)">Edit</button>
+                    <button class="btn btn-danger" @onclick="() => DeleteBook(book)">Delete</button>
+                </td>
+            </tr>
+        } 
+    </tbody>
+</table>
